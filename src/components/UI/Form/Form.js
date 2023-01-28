@@ -12,11 +12,12 @@ const UserInput = React.forwardRef((props, ref) => {
     return { activate };
   });
 
+  console.log('THIS', props.isValid);
   return (
     <Fragment>
       <div
         className={`${classes.control} ${
-          props.value.isValid === false ? classes.invalid : ''
+          props.isValid === false ? classes.invalid : ''
         }`}
       >
         <label htmlFor={props.id}>{props.label}</label>
@@ -25,7 +26,7 @@ const UserInput = React.forwardRef((props, ref) => {
           type={props.type}
           id={props.id}
           value={props.value}
-          onChange={props.change}
+          onChange={props.onChange}
           onBlur={props.blurr}
         />
       </div>

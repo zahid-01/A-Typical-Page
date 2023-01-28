@@ -51,7 +51,6 @@ const Login = () => {
   const { isValid: passwordIsValid } = passwordState;
 
   const authCtx = useContext(AuthContext);
-
   useEffect(() => {
     const timeout = setTimeout(() => {
       setFormIsValid(emailIsValid && passwordIsValid);
@@ -96,16 +95,18 @@ const Login = () => {
           ref={emailInputRef}
           id="email"
           label="Email"
+          isValid={emailIsValid}
           value={emailState.value}
-          change={emailChangeHandler}
+          onChange={emailChangeHandler}
           blur={validateEmailHandler}
         />
         <UserInput
           ref={passwordRef}
           id="password"
           label="Password"
+          isValid={passwordIsValid}
           value={passwordState.value}
-          change={passwordChangeHandler}
+          onChange={passwordChangeHandler}
           blur={validatePasswordHandler}
         />
         <div className={classes.actions}>
